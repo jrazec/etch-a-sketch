@@ -1,0 +1,78 @@
+/*Fonts used
+'Borel', cursive;
+'Handjet', cursive;
+'Montserrat', sans-serif;
+'Roboto', sans-serif;
+*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.header {
+    background-color: rgba(0, 255, 255, 0.822);
+    text-align: center;
+    padding: 40px;
+    font-size: 50px;
+    font-family: 'Borel', cursive;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(40, 223, 213, 0.726);
+    align-items: center;
+}
+
+.sketch-container {
+    display: flex;
+    justify-content: space-between;
+    width: 740px;
+    height: 600px;
+    background-color: white;
+}
+.sketch-kit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    padding: 20px;
+    background-color: antiquewhite;
+}
+.sketch-kit > div {
+    font-family: 'Handjet', cursive;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sketch-area {
+    height: 600px;
+    width: 600px;
+    background-color: rgb(240, 240, 240);
+}
+.sketch-manipulator {
+    /*Problem to be searched*/
+    /*How to put this on the bottom*/
+    display: flex;
+    margin-bottom: auto;
+    height: 80px;
+    align-items: center;
+}
+#apply-btn {
+    padding: 20px;
+    border: none;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+
+}
