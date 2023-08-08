@@ -58,10 +58,11 @@ body {
 
 .sketch-area {
     height: 600px;
+    width: 600px;
     background-color: rgb(0, 0, 0);
     display: flex;
     flex-wrap: wrap;
-    gap: 1px;
+
 }
 .cell {
     background-color: rgb(214, 214, 214);
@@ -83,10 +84,8 @@ body {
 }
 
 /*to design the slider*/
-.range-slider {
-    
-}
 .slider {
     width: 600px;
+    color: bisque;
 }
 

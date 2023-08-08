@@ -2,13 +2,12 @@
 let size;
 const sketchArea = document.querySelector('.sketch-area');
 let base;
-let width;
+
 //Creation of divs logic AS DEFAULT OF 16
 function changeSize() {
     size = parseInt(rangeSlider.value);//since it returns string and once u multiply int with string, its not the SAME value!! {try to remove parseInt to see :>}
-    base = 600/size;//formula to get a equal sizes for each cells
-    width = 600+size;//formula to allocate the gaps
-    sketchArea.setAttribute('style', `width:${width}px`);
+    let heh = 600;
+    base = (heh/size);//formula to get a equal sizes for each cells
 
     for(let i = 0; i < size; i++){
         for(let j = 0; j < size; j++){
@@ -35,6 +34,7 @@ applyBtn.addEventListener('click', () => {
     for(let i = 0; i < (size*size);i++){
         sketchArea.removeChild(sketchArea.lastElementChild);//to access the nodelist, childnodes is needed to be used
     }
+    
     changeSize();
 });
 
