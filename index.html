@@ -34,7 +34,15 @@
         </div>
         <div class="sketch-size-manipulator">
             <button id="apply-btn">Apply</button>
-            <div id="scroll-size">-o---------------------------------------------------------------------------------------------------------</div>
+            <div class="range-slider"><!--Range slider, to get the input from the user then return to script-->
+                <input type="range" min="1" max="64" value="16" class="slider">
+                <!--Type here is just what kind of input, so range is the slider 
+                    min for the minimum range
+                    max for the max range
+                    value is the default value
+                -->
+                <p id="range-number"></p>
+            </div>
         </div>
     </div>
 </body>

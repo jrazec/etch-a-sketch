@@ -1,3 +1,20 @@
+
+
+function changeSize() {
+
+}
+
+//Printing of range number
+const rangeNumber = document.querySelector('#range-number');
+const rangeSlider = document.querySelector('.slider');
+rangeNumber.textContent = rangeSlider.value;//just to display the default value
+rangeSlider.addEventListener('input', () => {
+    rangeNumber.textContent = rangeSlider.value;
+});
+
+
+
+//Creation of divs logic
 const sketchArea = document.querySelector('.sketch-area');
 let size = 10;
 const base = 600/size;//formula to get a equal sizes for each cells
@@ -12,3 +29,4 @@ for(let i = 0; i < size; i++){
         sketchArea.appendChild(cells)
     }
 }
+
