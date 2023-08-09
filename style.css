@@ -30,7 +30,7 @@ body {
 .content {
     display: flex;
     flex-direction: column;
-    background-color: rgba(40, 223, 213, 0.726);
+    background-color: #28dfd5b9;
     align-items: center;
 }
 
@@ -39,33 +39,42 @@ body {
     justify-content: space-between;
     width: 750px;
     height: 600px;
-    background-color: rgba(189, 189, 189, 0.671);
+    
 }
 .sketch-kit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     gap: 50px;
-    padding: 20px;
-    background-color: rgb(114,83,106);
+    padding: 15px;
 }
-.sketch-kit > div {
+.sketch-kit button {
     font-family: 'Handjet', cursive;
     font-size: 20px;
     font-weight: 500;
+    color: #28dfd5b9;
+    height: 70px;
+    width: 80px;
+    padding: 10px;
+    background-color: rgba(255, 35, 35, 0.63);
+    border: none;
+    border-radius: 50%;
 }
 
 .sketch-area {
     height: 600px;
     width: 600px;
-    background-color: rgb(0, 0, 0);
+
     display: flex;
     flex-wrap: wrap;
 
 }
 .cell {
-    background-color: rgb(214, 214, 214);
+   background-color: white;
+}
+.cell:hover {
+
 }
 .sketch-size-manipulator {
     /*Problem to be searched*/
@@ -74,6 +83,7 @@ body {
     margin-bottom: auto;
     height: 80px;
     align-items: center;
+    justify-content: center;
 }
 #apply-btn {
     padding: 20px;
@@ -89,3 +99,24 @@ body {
     color: bisque;
 }
 
+/*to design color-pallete*/
+#color-pallete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#color-picker {
+    border-style: none;
+    padding: none;
+    border-radius: 100%;
+    width: 30px;
+    height: 80px;
+    background-color: transparent;
+    margin: 0;
+}
+.color button{
+    text-align: center;
+    width: 60px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

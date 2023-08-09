@@ -6,8 +6,7 @@ let base;
 //Creation of divs logic AS DEFAULT OF 16
 function changeSize() {
     size = parseInt(rangeSlider.value);//since it returns string and once u multiply int with string, its not the SAME value!! {try to remove parseInt to see :>}
-    let heh = 600;
-    base = (heh/size);//formula to get a equal sizes for each cells
+    base = (600/size);//formula to get a equal sizes for each cells
 
     for(let i = 0; i < size; i++){
         for(let j = 0; j < size; j++){
@@ -38,6 +37,21 @@ applyBtn.addEventListener('click', () => {
     changeSize();
 });
 
+//to select the color u want
+const colorPicker = document.querySelector('#color-picker');
+const colorMode = document.querySelector('#color-mode');
+const rainbow = document.querySelector('rainbow');
+
+
+let colorPicked = "black";//default value
+
+colorMode.addEventListener('click', () =>{
+    colorPicker.addEventListener('input', () => colorPicked = colorPicker.value);
+});
+
+sketchArea.addEventListener('mouseover', (e) =>{
+    e.target.style.backgroundColor = `${colorPicked}`;
+});
 
 
 
