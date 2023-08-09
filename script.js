@@ -40,15 +40,43 @@ applyBtn.addEventListener('click', () => {
 //to select the color u want
 const colorPicker = document.querySelector('#color-picker');
 const colorMode = document.querySelector('#color-mode');
-const rainbow = document.querySelector('rainbow');
-
+const random = document.querySelector('#random');
+const cat = document.querySelector('#cat');
+const eraser = document.querySelector('#eraser');
+const clear = document.querySelector('#clear');
 
 let colorPicked = "black";//default value
-
-colorMode.addEventListener('click', () =>{
-    colorPicker.addEventListener('input', () => colorPicked = colorPicker.value);
+//to pick a color and change
+colorPicker.addEventListener('input', () =>{
+    colorMode.addEventListener('click', () => {
+        colorPicked = colorPicker.value;
+        colorMode.setAttribute('style',`background-color:${colorPicked}`);
+    });
+});
+//random mode
+random.addEventListener('click', () => {
+    const rBowList = ["red","orange","yellow","green","blue", "indigo", "violet"];
+    rBowList.forEach(colors => {
+        colorPicked = colors;
+    });
 });
 
+//eraser mode
+eraser.addEventListener('click', () => colorPicked = "white");
+
+
+//clear mode
+clear.addEventListener('click', () => {
+    //when this is outside, the cells that are queried arent being updated
+    //so by means of putting this inside, every clear, it selects all the relevant cells
+    const allCells = document.querySelectorAll('.cell')
+    allCells.forEach((cell) => {
+        cell.style.backgroundColor = "white";
+        console.log('works')
+    });
+});
+
+//background changer
 sketchArea.addEventListener('mouseover', (e) =>{
     e.target.style.backgroundColor = `${colorPicked}`;
 });
