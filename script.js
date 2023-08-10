@@ -47,6 +47,7 @@ applyBtn.addEventListener('click', () => {
 const colorPicker = document.querySelector('#color-picker');
 const colorMode = document.querySelector('#color-mode');
 const random = document.querySelector('#random');
+const rainbow = document.querySelector('#rainbow');
 const cat = document.querySelector('#cat');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
@@ -60,15 +61,14 @@ colorPicker.addEventListener('input', () => {
     colorCells(colorPicked);
 });
 
-//random mode
-random.addEventListener('click', () => {
+//rainbow mode
+rainbow.addEventListener('click', () => {
     const rBowList = ["red","orange","yellow","green","blue", "indigo", "violet"];
-    console.log('wroks')
     let i = 0;
     sketchArea.addEventListener('mouseover', (e) =>{
         e.target.style.backgroundColor = `${rBowList[i]}`;
         i++;
-        if(i == 6){
+        if(i == 7){//whenever i reaches the last array, it goes back to the start index 0
             i = 0;
         }  
     });
@@ -92,7 +92,8 @@ clear.addEventListener('click', () => {
     });
 });
 
-//background changer
+//bydefault
+colorCells("black");
 
 
 
