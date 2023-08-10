@@ -18,6 +18,12 @@ function changeSize() {
     }
 }
 
+function colorCells(colorPicked) {
+    sketchArea.addEventListener('mouseover', (e) =>{
+        e.target.style.backgroundColor = `${colorPicked}`;
+    });
+}
+
 //Printing of range number
 const rangeNumber = document.querySelector('#range-number');
 const rangeSlider = document.querySelector('.slider');
@@ -47,22 +53,32 @@ const clear = document.querySelector('#clear');
 
 let colorPicked = "black";//default value
 //to pick a color and change
-colorPicker.addEventListener('input', () =>{
-    colorMode.addEventListener('click', () => {
-        colorPicked = colorPicker.value;
-        colorMode.setAttribute('style',`background-color:${colorPicked}`);
-    });
+colorPicker.addEventListener('input', () => {
+    colorPicked = colorPicker.value;
+    console.log(colorPicked)
+    colorMode.setAttribute('style',`background-color:${colorPicked}`);
+    colorCells(colorPicked);
 });
+
 //random mode
 random.addEventListener('click', () => {
     const rBowList = ["red","orange","yellow","green","blue", "indigo", "violet"];
-    rBowList.forEach(colors => {
-        colorPicked = colors;
+    console.log('wroks')
+    let i = 0;
+    sketchArea.addEventListener('mouseover', (e) =>{
+        e.target.style.backgroundColor = `${rBowList[i]}`;
+        i++;
+        if(i == 6){
+            i = 0;
+        }  
     });
 });
 
 //eraser mode
-eraser.addEventListener('click', () => colorPicked = "white");
+eraser.addEventListener('click', () => {
+    colorPicked = "white"
+    colorCells(colorPicked);
+});
 
 
 //clear mode
@@ -77,9 +93,8 @@ clear.addEventListener('click', () => {
 });
 
 //background changer
-sketchArea.addEventListener('mouseover', (e) =>{
-    e.target.style.backgroundColor = `${colorPicked}`;
-});
+
+
 
 
 
