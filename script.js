@@ -21,6 +21,7 @@ function changeSize() {
 function colorCells(colorPicked) {
     sketchArea.addEventListener('mouseover', (e) =>{
         e.target.style.backgroundColor = `${colorPicked}`;
+        e.target.style.backgroundImage = '';//Added this so that the existing bgimage wont override the bgcolor :>
     });
 }
 
@@ -39,7 +40,6 @@ applyBtn.addEventListener('click', () => {
     for(let i = 0; i < (size*size);i++){
         sketchArea.removeChild(sketchArea.lastElementChild);//to access the nodelist, childnodes is needed to be used
     }
-    
     changeSize();
 });
 
@@ -52,27 +52,62 @@ const cat = document.querySelector('#cat');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 
-let colorPicked = "black";//default value
+let colorPicked = "black";//default value,var used by eraser and cpicker
+let colorInput; //var used by colorMode ONLY
 //to pick a color and change
 colorPicker.addEventListener('input', () => {
-    colorPicked = colorPicker.value;
+    colorInput = colorPicker.value;// for cMode ONLY
+    colorPicked = colorPicker.value;// for eraser
     console.log(colorPicked)
     colorMode.setAttribute('style',`background-color:${colorPicked}`);
     colorCells(colorPicked);
 });
-
+colorMode.addEventListener('click', () => {
+    colorCells(colorInput);
+});
 //rainbow mode
 rainbow.addEventListener('click', () => {
     const rBowList = ["red","orange","yellow","green","blue", "indigo", "violet"];
     let i = 0;
     sketchArea.addEventListener('mouseover', (e) =>{
-        e.target.style.backgroundColor = `${rBowList[i]}`;
+        e.target.style.backgroundColor = rBowList[i];
+        e.target.style.backgroundImage = '';//Added this so that the existing bgimage wont override the bgcolor :>
         i++;
         if(i == 7){//whenever i reaches the last array, it goes back to the start index 0
             i = 0;
         }  
     });
 });
+
+//cat mode
+cat.addEventListener('click', () => {
+    const catGallery = ["c1.jpg", "c2.jpg", "c3.jpg","c4.jpg"];
+    let i = 0;
+    sketchArea.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundImage = `url(${catGallery[i]})`;
+        e.target.style.backgroundSize = "cover";
+        e.target.style.backgroundRepeat = "no-repeat";
+        //e.target.style.backgroundColor = '';//I can add this but since image > color, its not needed
+        i++;
+        if(i == 4){
+            i = 0;
+        }
+    });
+});
+
+//random mode
+random.addEventListener('click', () =>  {
+    let r,g,b;
+    sketchArea.addEventListener('mouseover', (e) => {
+        r = Math.floor(Math.random() * 256);//Will return 0-255, math.floor rounds it down alr
+        g = Math.floor(Math.random() * 256);//Since math random returns floating numbers 0-1
+        b = Math.floor(Math.random() * 256);//Multiplying it by n will return 0 -> n-1
+        e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+        console.log(r,g,b)
+        e.target.style.backgroundImage = '';//Added this so that the existing bgimage wont override the bgcolor :>
+    });
+});
+
 
 //eraser mode
 eraser.addEventListener('click', () => {
@@ -88,7 +123,7 @@ clear.addEventListener('click', () => {
     const allCells = document.querySelectorAll('.cell')
     allCells.forEach((cell) => {
         cell.style.backgroundColor = "white";
-        console.log('works')
+        cell.style.backgroundImage = '';
     });
 });
 

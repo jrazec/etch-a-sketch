@@ -16,6 +16,7 @@ html {
 
 body {
     min-height: 100%;
+
 }
 
 .header {
@@ -46,7 +47,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: 50px;
+    gap: 10px;
     padding: 15px;
 }
 .sketch-kit button {
