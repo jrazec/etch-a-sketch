@@ -54,8 +54,8 @@ const cat = document.querySelector('#cat');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 
-let colorPicked = "black";//default value,var used by eraser and cpicker
-let colorInput; //var used by colorMode ONLY
+let colorPicked ;//default value,var used by eraser and cpicker
+let colorInput = "black"; //var used by colorMode ONLY
 
 //<--------------------BUTTON FEATURES-------------------->
 
@@ -69,7 +69,7 @@ colorPicker.addEventListener('input', () => {
 });
 colorMode.addEventListener('click', () => {
     colorCells(colorInput);
-});///////has a minor bug to be fixed, it is unusable whenever colorPicker isnt activated yet
+});
 
 //Rainbow Mode
 rainbow.addEventListener('click', () => {
