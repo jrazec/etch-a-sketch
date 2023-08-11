@@ -8,40 +8,55 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    color: #56494C;
 }
 
 html {
     height: 100%;
 }
 
-body {
+body {/*To remove scrollbar*/
     min-height: 100%;
-
-}
-
-.header {
-    background-color: rgba(0, 255, 255, 0.822);
-    text-align: center;
-    padding: 40px;
-    font-size: 50px;
-    font-family: 'Borel', cursive;
-    font-weight: bold;
-}
-
-.content {
     display: flex;
     flex-direction: column;
-    background-color: #28dfd5b9;
+}
+
+.header {/*Header|Title Section*/
+    background-color: #D6BA73;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding-top: 20px;
+    max-height: 120px;
+    font-family: 'Borel', cursive;
+    font-weight: bold;
+    flex: 1;
+}
+.title {
+    font-family: 'Borel', cursive;
+    font-size: 40px;
+    padding: 0;
+}
+
+.content {/*Sketch|Feature/Modes Selector Section*/
+    display: flex;
+    flex-direction: column;
+    background-color: #d6ba73;
     align-items: center;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
 }
 
 .sketch-container {
     display: flex;
     justify-content: space-between;
     width: 750px;
-    height: 600px;
-    
+    height: 600px;  
+
 }
+
 .sketch-kit {
     display: flex;
     flex-direction: column;
@@ -49,35 +64,33 @@ body {
     justify-content: space-around;
     gap: 10px;
     padding: 15px;
+
 }
 .sketch-kit button {
     font-family: 'Handjet', cursive;
     font-size: 20px;
     font-weight: 500;
-    color: #28dfd5b9;
+    color: #001615b9;
     height: 70px;
     width: 80px;
     padding: 10px;
-    background-color: rgba(255, 35, 35, 0.63);
+    background-color: rgba(184, 79, 9, 0.63);
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 
 .sketch-area {
     height: 600px;
     width: 600px;
-
     display: flex;
     flex-wrap: wrap;
-
 }
-.cell {
-   background-color: white;
+
+.cell {/*Class for all divs to be created*/
+   background-color: rgb(255, 255, 255);
 }
 
 .sketch-size-manipulator {
-    /*Problem to be searched*/
-    /*How to put this on the bottom*/
     display: flex;
     margin-bottom: auto;
     height: 80px;
@@ -85,11 +98,18 @@ body {
     justify-content: center;
 }
 #apply-btn {
-    padding: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 15px;
+    background-color: #b98605;
     border: none;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+#apply-btn:hover{
+    transition: 1s;
+    background-color: #b986058a;
+    color: white;
 }
 
 /*to design the slider*/
@@ -98,6 +118,40 @@ body {
     color: bisque;
 }
 
+#range-number {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.range-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    background-color: #b98605;
+    padding-right: 25px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.slider {/*Credits to W3Schools!*/
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+  }
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-radius: 10px;
+    appearance: none;
+    width: 8px;
+    height: 25px;
+    background: #0f1311;
+    cursor: pointer;
+  }
 /*to design color-pallete*/
 #color-pallete {
     display: flex;
@@ -119,3 +173,11 @@ body {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+/*Button Font Colors! when Hovered!*/
+.sketch-kit > button:hover,
+.color > button:hover {
+    transition: 120ms;
+    color: rgba(255, 255, 255, 0.336);
+}
+

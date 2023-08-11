@@ -28,9 +28,9 @@ function colorCells(colorPicked) {
 //Printing of range number
 const rangeNumber = document.querySelector('#range-number');
 const rangeSlider = document.querySelector('.slider');
-rangeNumber.textContent = rangeSlider.value;//just to display the default value
+rangeNumber.textContent = `${rangeSlider.value} x ${rangeSlider.value}`;//just to display the default value
 rangeSlider.addEventListener('input', () => {
-    rangeNumber.textContent = rangeSlider.value;
+    rangeNumber.textContent = `${rangeSlider.value} x ${rangeSlider.value}`;
 });
 
 

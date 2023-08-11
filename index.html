@@ -15,30 +15,33 @@
     <title>Etch a Sketch</title>
 </head>
 <body>
-    <div class="header">Etch-A-Sketch</div>
+
+    <div class="header">
+        <div class="title">Etch-A-Sketch</div>
+    </div>
 
     <div class="content">
         <div class="sketch-container">
             <div class="sketch-kit">
                 <div id="color-pallete">
-                     <div class="color"><input id="color-picker" type="color"></div>
-                     <div class="color"><button id="color-mode">color mode</button></div>
+                    <div class="color"><input id="color-picker" type="color"></div>
+                    <div class="color"><button id="color-mode">color mode</button></div>
                 </div>
-                
                 <button id="rainbow">rainbow mode</button>
                 <button id="cat">cat mode</button>
                 <button id="random">random mode</button>
                 <button id="eraser">eraser</button>
                 <button id="clear">clear</button>
             </div>
-
             <div class="sketch-area">
                 <!--Here is the area where the divs are going to be created-->
             </div>
         </div>
+
         <div class="sketch-size-manipulator">
-            <button id="apply-btn">Apply</button>
+            <button id="apply-btn">APPLY</button>
             <div class="range-slider"><!--Range slider, to get the input from the user then return to script-->
+                <br><!--Js to push the input in the mddle-->
                 <input type="range" min="1" max="64" value="16" class="slider">
                 <!--Type here is just what kind of input, so range is the slider 
                     min for the minimum range
@@ -48,6 +51,8 @@
                 <p id="range-number"></p>
             </div>
         </div>
+
     </div>
+    
 </body>
 </html>
