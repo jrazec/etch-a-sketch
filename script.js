@@ -1,13 +1,13 @@
 //to acces anytime anywhere!
 let size;
-const sketchArea = document.querySelector('.sketch-area');
 let base;
+const sketchArea = document.querySelector('.sketch-area');
+
 
 //Creation of divs logic AS DEFAULT OF 16
 function changeSize() {
     size = parseInt(rangeSlider.value);//since it returns string and once u multiply int with string, its not the SAME value!! {try to remove parseInt to see :>}
     base = (600/size);//formula to get a equal sizes for each cells
-
     for(let i = 0; i < size; i++){
         for(let j = 0; j < size; j++){
             const cells = document.createElement('div');
@@ -18,6 +18,7 @@ function changeSize() {
     }
 }
 
+//Change the color of the cells
 function colorCells(colorPicked) {
     sketchArea.addEventListener('mouseover', (e) =>{
         e.target.style.backgroundColor = `${colorPicked}`;
@@ -33,8 +34,9 @@ rangeSlider.addEventListener('input', () => {
     rangeNumber.textContent = `${rangeSlider.value} x ${rangeSlider.value}`;
 });
 
-
 changeSize();
+
+//To let allow button change the size of sketch area
 const applyBtn = document.querySelector('#apply-btn');
 applyBtn.addEventListener('click', () => {
     for(let i = 0; i < (size*size);i++){
@@ -43,7 +45,7 @@ applyBtn.addEventListener('click', () => {
     changeSize();
 });
 
-//to select the color u want
+//To select the color u want
 const colorPicker = document.querySelector('#color-picker');
 const colorMode = document.querySelector('#color-mode');
 const random = document.querySelector('#random');
@@ -54,7 +56,10 @@ const clear = document.querySelector('#clear');
 
 let colorPicked = "black";//default value,var used by eraser and cpicker
 let colorInput; //var used by colorMode ONLY
-//to pick a color and change
+
+//<--------------------BUTTON FEATURES-------------------->
+
+//Color Mode
 colorPicker.addEventListener('input', () => {
     colorInput = colorPicker.value;// for cMode ONLY
     colorPicked = colorPicker.value;// for eraser
@@ -64,8 +69,9 @@ colorPicker.addEventListener('input', () => {
 });
 colorMode.addEventListener('click', () => {
     colorCells(colorInput);
-});
-//rainbow mode
+});///////has a minor bug to be fixed, it is unusable whenever colorPicker isnt activated yet
+
+//Rainbow Mode
 rainbow.addEventListener('click', () => {
     const rBowList = ["red","orange","yellow","green","blue", "indigo", "violet"];
     let i = 0;
@@ -79,7 +85,7 @@ rainbow.addEventListener('click', () => {
     });
 });
 
-//cat mode
+//Cat Mode
 cat.addEventListener('click', () => {
     const catGallery = ["c1.jpg", "c2.jpg", "c3.jpg","c4.jpg"];
     let i = 0;
@@ -95,7 +101,7 @@ cat.addEventListener('click', () => {
     });
 });
 
-//random mode
+//Random Mode
 random.addEventListener('click', () =>  {
     let r,g,b;
     sketchArea.addEventListener('mouseover', (e) => {
@@ -108,26 +114,22 @@ random.addEventListener('click', () =>  {
     });
 });
 
-
-//eraser mode
+//Eraser Mode
 eraser.addEventListener('click', () => {
     colorPicked = "white"
     colorCells(colorPicked);
 });
 
-
-//clear mode
+//Clear Mode
 clear.addEventListener('click', () => {
-    //when this is outside, the cells that are queried arent being updated
-    //so by means of putting this inside, every clear, it selects all the relevant cells
     const allCells = document.querySelectorAll('.cell')
     allCells.forEach((cell) => {
         cell.style.backgroundColor = "white";
         cell.style.backgroundImage = '';
-    });
-});
+    });//when this is outside, the cells that are queried arent being updated
+});//so by means of putting this inside, every clear, it selects all the relevant cells
 
-//bydefault
+//ByDefault
 colorCells("black");
 
 
